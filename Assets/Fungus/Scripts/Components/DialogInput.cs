@@ -3,6 +3,7 @@
 
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Fungus
 {
@@ -86,8 +87,12 @@ namespace Fungus
 
             if (writer != null)
             {
-                if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
-                    (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
+                //if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
+                //    (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
+                //{
+                //    SetNextLineFlag();
+                //}
+                if (_actions.UI.Submit.WasPerformedThisFrame() || (cancelEnabled && _actions.UI.Cancel.IsPressed()))
                 {
                     SetNextLineFlag();
                 }
