@@ -4,6 +4,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 namespace Fungus
 {
@@ -49,8 +50,12 @@ namespace Fungus
 
         protected Writer writer;
 
+        private DefaultInputActions _actions;
+
         protected virtual void Awake()
         {
+            _actions = new DefaultInputActions();
+            _actions.Enable();
             writer = GetComponent<Writer>();
 
             CheckEventSystem();
